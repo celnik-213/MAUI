@@ -1,0 +1,48 @@
+﻿<ContentPage
+    x:Class="Zadanie_25_11.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="RootPage">
+
+    <VerticalStackLayout Padding="20" Spacing="12">
+
+        <!-- Pole i przycisk dodawania -->
+        <HorizontalStackLayout Spacing="10">
+            <Entry WidthRequest="250"
+                   Placeholder="Wpisz nowe zadanie..."
+                   Text="{Binding TaskTitle}" />
+            <Button Text="Dodaj"
+                    Command="{Binding AddTaskCommand}" />
+        </HorizontalStackLayout>
+
+        <!-- Lista zadań z CheckBox i przyciskiem usuń -->
+        <CollectionView ItemsSource="{Binding Tasks}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout Spacing="10">
+
+                        <CheckBox IsChecked="{Binding IsCompleted}" />
+
+                        <Label Text="{Binding Title}" VerticalOptions="Center" />
+
+                        <Button Text="Usuń" 
+                                Command="{Binding Source={x:Reference RootPage}, Path=BindingContext.RemoveTaskCommand}" 
+                                CommandParameter="{Binding}" />
+
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Przycisk usuń wszystkie wykonane -->
+        <Button Text="Usuń wszystkie wykonane"
+                Command="{Binding RemoveCompletedCommand}" />
+
+        <!-- Liczba zadań -->
+        <Label HorizontalOptions="Center"
+               FontAttributes="Bold"
+               Text="{Binding TaskCount}" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
