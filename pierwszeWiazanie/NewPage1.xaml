@@ -1,12 +1,60 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="pierwszeWiazanie.NewPage1"
-             Title="NewPage1">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:Class="pierwszeWiazanie.NewPage1">
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <Label 
+                Text="Podaj wzrost(metry)"
+                FontSize="32"
+                HorizontalOptions="Center" />
+            <Slider VerticalOptions="Center"
+                    Minimum="1.0"
+                    Maximum="2.5" 
+                    Value="{Binding height, Mode=TwoWay}"/>
+            <Label 
+                Text="Podaj wagę(kg)"
+                FontSize="32"
+                HorizontalOptions="Center"/>
+
+            <Slider 
+                VerticalOptions="Center"
+                Minimum="30" 
+                Maximum="200"
+                Value="{Binding weight, Mode=TwoWay}"/>
+
+            <Label 
+                Text="Wzrost:"
+                FontSize="32"
+                HorizontalOptions="Center" />
+            <Label 
+                Text="{Binding height, Mode=OneWay}"
+                FontSize="32" 
+                HorizontalOptions="Center"/>
+            <Label 
+                Text="Waga:"
+                FontSize="32"
+                HorizontalOptions="Center" />
+            <Label 
+                Text="{Binding weight, Mode=OneWay}"
+                FontSize="32"
+                HorizontalOptions="Center"/>
+            <Label 
+                 Text="BMI:"
+                 FontSize="32"
+                 HorizontalOptions="Center" />
+            <Label
+                Text="{Binding bmi, Mode=OneWay}"
+                FontSize="32" 
+                HorizontalOptions="Center" />
+            <Label 
+                Text="{Binding category, Mode=OneWay}"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>
