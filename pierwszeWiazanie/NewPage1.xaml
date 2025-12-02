@@ -7,13 +7,17 @@
         <VerticalStackLayout>
 
             <Label 
-                Text="Podaj wzrost(metry)"
+                Text="Podaj wzrost m: "
                 FontSize="32"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                
+             />
+
             <Slider VerticalOptions="Center"
                     Minimum="1.0"
-                    Maximum="2.5" 
+                    Maximum="2.5"
                     Value="{Binding height, Mode=TwoWay}"/>
+
             <Label 
                 Text="Podaj wagę(kg)"
                 FontSize="32"
