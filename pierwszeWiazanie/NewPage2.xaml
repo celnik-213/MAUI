@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pierwszeWiazanie.NewPage2"
+             x:Name="Page"
+             >
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label 
+            Text="Lista zakupów"
+            FontSize="30"
+            HorizontalOptions="Center"
+            FontAttributes="Bold"
+            />
+
+        <!-- ░░░ FORMULARZ DODAWANIA PRODUKTU ░░░ -->
+        <Frame BorderColor="Navy" Padding="15">
+            <VerticalStackLayout Spacing="10">
+
+                <Entry Placeholder="Nazwa"
+                       Text="{Binding NewName}" />
+
+                <Entry Placeholder="Cena"
+                       Keyboard="Numeric"
+                       Text="{Binding NewPrice}" />
+
+                <HorizontalStackLayout>
+                    <Label Text="Ilość:"/>
+                    <Entry Keyboard="Numeric"
+                           WidthRequest="80"
+                           Text="{Binding NewQuantity}" />
+                </HorizontalStackLayout>
+
+                <Button Text="Dodaj do listy"
+                        BackgroundColor="DeepSkyBlue"
+                        TextColor="White"
+                        Clicked="AddButton_Clicked"/>
+            </VerticalStackLayout>
+        </Frame>
+
+
+        <!-- ░░░ LISTA PRODUKTÓW Z NAGŁÓWKIEM ░░░ -->
+        <CollectionView ItemsSource="{Binding Items}"
+                        SelectionMode="None">
+
+            <!-- NAGŁÓWEK W TEJ SAMEJ LIŚCIE -->
+            <CollectionView.Header>
+                <Grid ColumnDefinitions="2*,*,*,*,Auto"
+                      Padding="10"
+                      BackgroundColor="DeepSkyBlue">
+
+                    <Label Text="NAZWA"  Grid.Column="0" FontAttributes="Bold"/>
+                    <Label Text="CENA"   Grid.Column="1" FontAttributes="Bold"/>
+                    <Label Text="ILOŚĆ"  Grid.Column="2" FontAttributes="Bold"/>
+                    <Label Text="KWOTA"  Grid.Column="3" FontAttributes="Bold"/>
+                    <Label Text=""        Grid.Column="4"/>
+                </Grid>
+            </CollectionView.Header>
+
+            <!-- SZABLON ELEMENTU LISTY -->
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="2*,*,*,*,Auto"
+                          Padding="10">
+
+                        <Label Text="{Binding Name}"        Grid.Column="0"/>
+                        <Label Text="{Binding Price}"       Grid.Column="1"/>
+                        <Label Text="{Binding Quantity}"    Grid.Column="2"/>
+                        <Label Text="{Binding TotalPrice}"  Grid.Column="3"/>
+
+                        <Button Text="Usuń"
+                                BackgroundColor="Red"
+                                TextColor="White"
+                                Grid.Column="4"
+                                BindingContext="{Binding}"
+                                Clicked="RemoveButton_Clicked"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="Suma: "
+           FontSize="24"
+           FontAttributes="Bold"/>
+            <Label Text="{Binding TotalSum}"
+           FontSize="24"
+           FontAttributes="Bold"/>
+            <Label 
+                Text=" zł"
+                FontSize="24"
+                FontAttributes="Bold"
+                />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+
+</ContentPage>
