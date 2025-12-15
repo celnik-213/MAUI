@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class = "StyleNetMaui.MainPage" >
+
+    <ContentPage.Resources>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="#1F2933"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        <Style x:Key="EntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="#374151"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="PlaceholderColor" Value="#9CA3AF"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="#F9FAFB"/>
+            <Setter Property="BackgroundColor" Value="#10B981"/>
+            <Setter Property="FontSize" Value="22"/>
+        </Style>
+        <Style x:Key="ButtonStyleSecond" TargetType="Button">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="BorderWidth" Value="2"/>
+            <Setter Property="BorderColor" Value="#10B981"/>
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label 
+                Text="Imie"
+                Style="{StaticResource LabelStyle}"
+                />
+            <Entry
+                Placeholder="Wpisz imie"
+                Style="{StaticResource EntryStyle}"
+                />
+            <Label 
+                 Text="Nazwisko"
+                 Style="{StaticResource LabelStyle}"
+                 />
+            <Entry
+                 Placeholder="Wpisz Nazwisko"
+                 Style="{StaticResource EntryStyle}"
+                 />
+            <Label
+                Text="Email"
+                Style="{StaticResource LabelStyle}"
+                />
+            <Entry
+                Placeholder="Wpisz Email"
+                Style="{StaticResource EntryStyle}"
+                />
+            <Label
+                Text="Hasło"
+                Style="{StaticResource LabelStyle}"
+                />
+            <Entry
+                Placeholder="Wpisz hasło"
+                Style="{StaticResource EntryStyle}"
+                />
+            <Button
+                Text="Zarejestruj się"
+                Style="{StaticResource ButtonStyle}"
+                />
+            <Button
+                Text="Anuluj"
+                Style="{StaticResource ButtonStyleSecond}"
+                />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
