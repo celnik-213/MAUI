@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="StyleNetMaui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:StyleNetMaui"
+    Title="StyleNetMaui">
+    <TabBar>
+        <Tab Title="Maui 15.2">
+            <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+        </Tab>
+
+        <Tab Title="Maui 15.3">
+            <ShellContent
+    Title="Home"
+    ContentTemplate="{DataTemplate local:NewPage1}"
+    Route="NewPage1" />
+        </Tab>
+    </TabBar>
+
+</Shell>
