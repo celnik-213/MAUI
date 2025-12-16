@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:MAUI_16_2"
     Title="MAUI_16_2">
     <TabBar>
-        <Tab Title="Zadanie 1">
+        <Tab Title="Zadanie1">
             <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
@@ -18,6 +18,13 @@
         Title="NewPage1"
         ContentTemplate="{DataTemplate local:NewPage1}"
         Route="NewPage1" />
+        </Tab>
+        <Tab Title="Zadanie3">
+
+            <ShellContent
+    Title="NewPage2"
+    ContentTemplate="{DataTemplate local:NewPage2}"
+    Route="NewPage2" />
         </Tab>
     </TabBar>
 

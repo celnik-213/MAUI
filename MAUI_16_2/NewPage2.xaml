@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_16_2.NewPage2"
+             Title="NewPage2">
+
+    <VerticalStackLayout>
+
+        <Label 
+            Text="Kalkulator rachunku!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="30"
+            FontAttributes="Bold"/>
+
+        <Grid RowDefinitions="Auto,Auto"
+              ColumnDefinitions="Auto,Auto">
+
+            <Label 
+                Text="Kwota rachunku:"
+                FontSize="20"
+                FontAttributes="Bold"
+                Grid.Row="0"
+                Grid.Column="0"/>
+
+            <Entry 
+                x:Name="BillAmountEntry"
+                Placeholder="Wpisz kwotę"
+                Keyboard="Numeric"
+                FontSize="20"
+                Grid.Row="0"
+                Grid.Column="1"/>
+
+            <Label 
+                Text="Procent napiwku:"
+                FontSize="20"
+                FontAttributes="Bold"
+                Grid.Row="1"
+                Grid.Column="0"/>
+
+            <Entry 
+                x:Name="TipPercentageEntry"
+                Placeholder="Wpisz procent napiwku"
+                Keyboard="Numeric"
+                FontSize="20"
+                Grid.Row="1"
+                Grid.Column="1"/>
+            <Stepper 
+                x:Name="TipStepper"
+                Minimum="0"
+                Maximum="10"
+                Increment="1"
+                Grid.Row="1"
+                Grid.Column="2"/>
+            <Slider 
+                x:Name="TipSlider"
+                Minimum="0"
+                Maximum="30"
+                Value="15"
+                Grid.Row="1"
+                Grid.Column="3"/>
+
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>
