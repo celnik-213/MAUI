@@ -2,65 +2,72 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MAUI_16_2.NewPage2"
-             Title="NewPage2">
+             Title="Kalkulator napiwków">
 
-    <VerticalStackLayout>
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto"
+          ColumnDefinitions="*,*"
+          Padding="20"
+          RowSpacing="20"
+          ColumnSpacing="20">
 
-        <Label 
-            Text="Kalkulator rachunku!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" 
-            FontSize="30"
-            FontAttributes="Bold"/>
+        <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
+            <Label Text="Kalkulator napiwków"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
 
-        <Grid RowDefinitions="Auto,Auto"
-              ColumnDefinitions="Auto,Auto">
+            <Label Text="Kwota rachunku:"/>
+            <Entry x:Name="BillAmountEntry"
+                   Placeholder="Wpisz kwotę"
+                   Keyboard="Numeric"/>
+        </VerticalStackLayout>
 
-            <Label 
-                Text="Kwota rachunku:"
-                FontSize="20"
-                FontAttributes="Bold"
-                Grid.Row="0"
-                Grid.Column="0"/>
+        <VerticalStackLayout Grid.Row="1" Grid.Column="0">
+            <Label Text="Procent napiwku:"/>
+            <Label x:Name="TipPercentLabel"
+                   Text="15 %"
+                   FontAttributes="Bold"/>
 
-            <Entry 
-                x:Name="BillAmountEntry"
-                Placeholder="Wpisz kwotę"
-                Keyboard="Numeric"
-                FontSize="20"
-                Grid.Row="0"
-                Grid.Column="1"/>
+            <Slider x:Name="TipSlider"
+                    Minimum="0"
+                    Maximum="30"
+                    Value="15"
+                    ValueChanged="TipSlider_ValueChanged"/>
+        </VerticalStackLayout>
 
-            <Label 
-                Text="Procent napiwku:"
-                FontSize="20"
-                FontAttributes="Bold"
-                Grid.Row="1"
-                Grid.Column="0"/>
+        <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+            <Label Text="Liczba osób:"/>
+            <Label x:Name="PeopleLabel"
+                   Text="1"
+                   FontAttributes="Bold"/>
 
-            <Entry 
-                x:Name="TipPercentageEntry"
-                Placeholder="Wpisz procent napiwku"
-                Keyboard="Numeric"
-                FontSize="20"
-                Grid.Row="1"
-                Grid.Column="1"/>
-            <Stepper 
-                x:Name="TipStepper"
-                Minimum="0"
-                Maximum="10"
-                Increment="1"
-                Grid.Row="1"
-                Grid.Column="2"/>
-            <Slider 
-                x:Name="TipSlider"
-                Minimum="0"
-                Maximum="30"
-                Value="15"
-                Grid.Row="1"
-                Grid.Column="3"/>
+            <Stepper x:Name="PeopleStepper"
+                     Minimum="1"
+                     Maximum="10"
+                     Increment="1"
+                     Value="1"
+                     ValueChanged="PeopleStepper_ValueChanged"/>
+        </VerticalStackLayout>
 
-        </Grid>
+        <VerticalStackLayout Grid.Row="2" Grid.ColumnSpan="2">
+            <Label Text="Wyniki"
+                   FontSize="20"
+                   FontAttributes="Bold"/>
 
-    </VerticalStackLayout>
+            <Label x:Name="TipAmountLabel" Text="Napiwek: 0.00 zł"/>
+            <Label x:Name="TotalAmountLabel" Text="Suma: 0.00 zł"/>
+            <Label x:Name="PerPersonLabel" Text="Na osobę: 0.00 zł"/>
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="3"
+                               Grid.ColumnSpan="2"
+                               HorizontalOptions="Center"
+                               Spacing="20">
+            <Button Text="Oblicz"
+                    Clicked="CalculateButton_Clicked"/>
+            <Button Text="Wyczyść"
+                    Clicked="ClearButton_Clicked"/>
+        </HorizontalStackLayout>
+
+    </Grid>
 </ContentPage>
