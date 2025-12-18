@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_16_2.NewPage2"
+             Title="Kalkulator napiwków">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto"
+          ColumnDefinitions="*,*"
+          Padding="20"
+          RowSpacing="20"
+          ColumnSpacing="20">
+
+        <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
+            <Label Text="Kalkulator napiwków"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Kwota rachunku:"/>
+            <Entry x:Name="BillAmountEntry"
+                   Placeholder="Wpisz kwotę"
+                   Keyboard="Numeric"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1" Grid.Column="0">
+            <Label Text="Procent napiwku:"/>
+            <Label x:Name="TipPercentLabel"
+                   Text="15 %"
+                   FontAttributes="Bold"/>
+
+            <Slider x:Name="TipSlider"
+                    Minimum="0"
+                    Maximum="30"
+                    Value="15"
+                    ValueChanged="TipSlider_ValueChanged"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+            <Label Text="Liczba osób:"/>
+            <Label x:Name="PeopleLabel"
+                   Text="1"
+                   FontAttributes="Bold"/>
+
+            <Stepper x:Name="PeopleStepper"
+                     Minimum="1"
+                     Maximum="10"
+                     Increment="1"
+                     Value="1"
+                     ValueChanged="PeopleStepper_ValueChanged"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="2" Grid.ColumnSpan="2">
+            <Label Text="Wyniki"
+                   FontSize="20"
+                   FontAttributes="Bold"/>
+
+            <Label x:Name="TipAmountLabel" Text="Napiwek: 0.00 zł"/>
+            <Label x:Name="TotalAmountLabel" Text="Suma: 0.00 zł"/>
+            <Label x:Name="PerPersonLabel" Text="Na osobę: 0.00 zł"/>
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="3"
+                               Grid.ColumnSpan="2"
+                               HorizontalOptions="Center"
+                               Spacing="20">
+            <Button Text="Oblicz"
+                    Clicked="CalculateButton_Clicked"/>
+            <Button Text="Wyczyść"
+                    Clicked="ClearButton_Clicked"/>
+        </HorizontalStackLayout>
+
+    </Grid>
+</ContentPage>

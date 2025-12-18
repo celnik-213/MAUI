@@ -70,7 +70,7 @@
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10" HorizontalOptions="Start">
                     <Label 
-                        Text="Tryb Jasny"
+                        Text="Tryb Ciemny"
                         VerticalOptions="Center"/>
                     <Switch
                         IsToggled="False"
@@ -79,12 +79,12 @@
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10" HorizontalOptions="Start">
                     <Label 
-        Text="Powiadomienia Push"
-        VerticalOptions="Center"/>
+                        Text="Powiadomienia Push"
+                        VerticalOptions="Center"/> 
                     <Switch
-        IsToggled="False"
-        x:Name="PushSwitch"
-        HorizontalOptions="Center"/>
+                        IsToggled="False"
+                        x:Name="PushSwitch"
+                        HorizontalOptions="Center"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
        </HorizontalStackLayout>
